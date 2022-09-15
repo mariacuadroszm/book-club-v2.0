@@ -1,38 +1,30 @@
-@import "./base.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
+@layer components {
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+      @apply bg-primary min-h-screen min-w-full font-helvetica
   }
+
+  h1 {
+    @apply font-space text-2xl font-bold
+  }
+
+  h2 {
+    @apply font-helvetica text-xl font-bold text-black
+  }
+
+  h3 {
+    @apply font-helvetica text-lg font-medium text-tertiary
+  }
+
+  .btn {
+    @apply font-space text-base font-medium border-2 rounded-lg py-2 px-6 border-secondary text-secondary
+  }
+
+  .btn__selected {
+    @apply bg-secondary  text-white shadow-md
+  }
+  
 }
