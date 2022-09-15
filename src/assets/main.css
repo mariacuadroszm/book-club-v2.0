@@ -15,10 +15,6 @@
     @apply font-helvetica text-xl font-bold text-black
   }
 
-  h3 {
-    @apply font-helvetica text-lg font-medium text-tertiary
-  }
-
   .btn {
     @apply font-space text-base font-medium border-2 rounded-lg py-2 px-6 border-secondary text-secondary
   }

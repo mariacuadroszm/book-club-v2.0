@@ -16,5 +16,5 @@ module.exports = {
       helvetica: ["Helvetica Neue", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

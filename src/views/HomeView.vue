@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+import BookCard from "../components/BookCard.vue";
+</script>
 
 <template>
-  <main></main>
+  <main>
+    <BookCard></BookCard>
+  </main>
 </template>
