@@ -1,9 +1,9 @@
 <script setup>
-import BookList from "../components/BookList.vue";
+import MainHeader from "../components/MainHeader.vue";
 </script>
 
 <template>
   <main>
-    <BookList></BookList>
+    <MainHeader></MainHeader>
   </main>
 </template>
