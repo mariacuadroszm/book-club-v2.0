@@ -23,4 +23,15 @@
     @apply bg-secondary  text-white shadow-md
   }
   
+  .btn__white {
+    @apply border-white text-white
+  }
+
+  .carouselLayout {
+    @apply flex overflow-x-auto gap-4
+  }
+
+  .listLayout {
+    @apply flex flex-col gap-4
+  }
 }

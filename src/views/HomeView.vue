@@ -1,9 +1,9 @@
 <script setup>
-import BookCard from "../components/BookCard.vue";
+import BookList from "../components/BookList.vue";
 </script>
 
 <template>
   <main>
-    <BookCard></BookCard>
+    <BookList></BookList>
   </main>
 </template>
