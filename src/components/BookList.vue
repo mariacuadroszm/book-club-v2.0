@@ -1,10 +1,10 @@
 <script setup>
 import BookCard from "../components/BookCard.vue";
-import mockedBooks from "../assets/data.json";
-import { ref } from "vue";
 
-const books = ref(mockedBooks);
-const isCarousel = ref(true);
+const props = defineProps({
+  isCaroulsel: { type: Boolean, required: true },
+  books: { type: Array, required: true },
+});
 </script>
 
 <template>
@@ -17,8 +17,12 @@ const isCarousel = ref(true);
         ><slot name="description"></slot
       ></span>
     </div>
-    <div :class="isCarousel ? 'carouselLayout' : 'listLayout'">
-      <BookCard v-for="book in books" :key="book.id" :book="book"></BookCard>
+    <div :class="props.isCaroulsel ? 'carouselLayout' : 'listLayout'">
+      <BookCard
+        v-for="book in props.books"
+        :key="book.id"
+        :book="book"
+      ></BookCard>
     </div>
     <div class="mt-4">
       <slot name="buttons"></slot>

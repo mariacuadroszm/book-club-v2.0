@@ -1,10 +1,24 @@
 <script setup>
 import { computed } from "vue";
 
-const props = defineProps(["book"]);
+const props = defineProps({
+  book: { type: Object, required: true },
+});
 
 const textBtn = computed(() => {
-  return props.book.activeUser ? "Voted" : "Vote";
+  if (props.book.activeUser && props.book.status === "proposed") {
+    return "Voted";
+  } else if (!props.book.activeUser && props.book.status === "proposed") {
+    return "Vote";
+  } else if (props.book.activeUser && props.book.status === "active") {
+    return "Joined";
+  } else {
+    return "Join";
+  }
+});
+
+const textParticipants = computed(() => {
+  return props.book.status === "proposed" ? "Insterested" : "Readers";
 });
 </script>
 
@@ -23,7 +37,9 @@ const textBtn = computed(() => {
         <v-icon name="bi-book" scale="3" />
       </div>
       <div class="flex flex-col items-center">
-        <span class="text-sm"> {{ props.book.participants }} Interested</span>
+        <span class="text-sm">
+          {{ props.book.participants }} {{ textParticipants }}</span
+        >
         <button :class="props.book.activeUser ? 'btn btn__selected' : 'btn'">
           {{ textBtn }}
           <v-icon
