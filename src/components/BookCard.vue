@@ -1,5 +1,8 @@
 <script setup>
 import { computed } from "vue";
+import useBooksStore from "../stores/books.js";
+
+const booksStore = useBooksStore();
 
 const props = defineProps({
   book: { type: Object, required: true },
@@ -20,6 +23,10 @@ const textBtn = computed(() => {
 const textParticipants = computed(() => {
   return props.book.status === "proposed" ? "Insterested" : "Readers";
 });
+
+const voteForBook = () => {
+  booksStore.voteForBook(props.book.id);
+};
 </script>
 
 <template>
@@ -40,7 +47,10 @@ const textParticipants = computed(() => {
         <span class="text-sm">
           {{ props.book.participants }} {{ textParticipants }}</span
         >
-        <button :class="props.book.activeUser ? 'btn btn__selected' : 'btn'">
+        <button
+          :class="props.book.activeUser ? 'btn btn__selected' : 'btn'"
+          @click="voteForBook"
+        >
           {{ textBtn }}
           <v-icon
             :name="props.book.activeUser ? 'hi-solid-check' : 'hi-solid-plus'"

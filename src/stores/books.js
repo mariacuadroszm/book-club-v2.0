@@ -49,7 +49,7 @@ export default defineStore("books", {
         status: "proposed",
       },
       {
-        id: "4",
+        id: "9",
         title:
           "One Hundred Years of Solitude and Lorem ipsum dolor sit amet consectetur",
         author: "Gabriel Garcia Marquez",
@@ -105,7 +105,7 @@ export default defineStore("books", {
         status: "active",
       },
       {
-        id: "8",
+        id: "10",
         title: "Hamlet",
         author: "William Shakespeare",
         participants: 5,
@@ -126,8 +126,18 @@ export default defineStore("books", {
     },
   },
   actions: {
-      voteForBook() {
-
-      },
+    voteForBook(bookId) {
+      this.books.forEach((book) => {
+        if (book.id === bookId) {
+          if (book.activeUser === false) {
+            book.participants++;
+            book.activeUser = true;
+          } else {
+            book.participants--;
+            book.activeUser = false;
+          }
+        }
+      });
+    },
   },
 });
