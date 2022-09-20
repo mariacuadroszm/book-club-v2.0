@@ -1,10 +1,9 @@
 <script setup>
 import MainHeader from "../components/MainHeader.vue";
 import BookList from "../components/BookList.vue";
-import mockedBooks from "../assets/data.json";
-import { ref } from "vue";
+import useBooksStore from "../stores/books.js";
 
-const books = ref(mockedBooks);
+const booksStore = useBooksStore();
 </script>
 
 <template>
@@ -15,7 +14,10 @@ const books = ref(mockedBooks);
 
     <main>
       <section>
-        <BookList :is-caroulsel="true" :books="books">
+        <BookList
+          :is-caroulsel="true"
+          :books="booksStore.findBooksByStatus('proposed', 5)"
+        >
           <template v-slot:title>Proposed books</template>
           <template v-slot:description
             >Vote for the books you want to read</template
@@ -34,7 +36,10 @@ const books = ref(mockedBooks);
       </section>
 
       <section class="mt-6">
-        <BookList :is-caroulsel="true" :books="books">
+        <BookList
+          :is-caroulsel="true"
+          :books="booksStore.findBooksByStatus('active', 5)"
+        >
           <template v-slot:title>Active clubs</template>
           <template v-slot:description
             >Find active book clubs and their members</template
