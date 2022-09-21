@@ -15,7 +15,7 @@ const booksStore = useBooksStore();
     <main>
       <section>
         <BookList
-          :is-caroulsel="true"
+          :is-carousel="true"
           :books="booksStore.findBooksByStatus('proposed', 5)"
         >
           <template v-slot:title>Proposed books</template>
@@ -37,7 +37,7 @@ const booksStore = useBooksStore();
 
       <section class="mt-6">
         <BookList
-          :is-caroulsel="true"
+          :is-carousel="true"
           :books="booksStore.findBooksByStatus('active', 5)"
         >
           <template v-slot:title>Active clubs</template>

@@ -2,7 +2,7 @@
 import BookCard from "../components/BookCard.vue";
 
 const props = defineProps({
-  isCaroulsel: { type: Boolean, required: true },
+  isCarousel: { type: Boolean, required: true },
   books: { type: Array, required: true },
 });
 </script>
@@ -17,7 +17,10 @@ const props = defineProps({
         ><slot name="description"></slot
       ></span>
     </div>
-    <div :class="props.isCaroulsel ? 'carouselLayout' : 'listLayout'">
+    <div
+      :class="props.isCarousel ? 'carouselLayout' : 'listLayout'"
+      data-testid="listContainer"
+    >
       <BookCard
         v-for="book in props.books"
         :key="book.id"

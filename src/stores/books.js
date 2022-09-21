@@ -129,7 +129,7 @@ export default defineStore("books", {
     voteForBook(bookId) {
       this.books.forEach((book) => {
         if (book.id === bookId) {
-          if (book.activeUser === false) {
+          if (!book.activeUser) {
             book.participants++;
             book.activeUser = true;
           } else {

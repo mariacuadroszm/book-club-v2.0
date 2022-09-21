@@ -21,7 +21,7 @@ const textBtn = computed(() => {
 });
 
 const textParticipants = computed(() => {
-  return props.book.status === "proposed" ? "Insterested" : "Readers";
+  return props.book.status === "proposed" ? "Interested" : "Readers";
 });
 
 const voteForBook = () => {
@@ -34,22 +34,25 @@ const voteForBook = () => {
     class="h-48 p-4 bg-white rounded-lg flex flex-col justify-between min-w-[270px]"
   >
     <div>
-      <h2 class="line-clamp-2">{{ props.book.title }}</h2>
-      <span class="text-lg font-medium text-tertiary line-clamp-1">{{
-        props.book.author
-      }}</span>
+      <h2 class="line-clamp-2" data-testid="title">{{ props.book.title }}</h2>
+      <span
+        class="text-lg font-medium text-tertiary line-clamp-1"
+        data-testid="author"
+        >{{ props.book.author }}</span
+      >
     </div>
     <div class="flex justify-between">
       <div class="flex items-center">
         <v-icon name="bi-book" scale="3" />
       </div>
       <div class="flex flex-col items-center">
-        <span class="text-sm">
+        <span class="text-sm" data-testid="participants">
           {{ props.book.participants }} {{ textParticipants }}</span
         >
         <button
           :class="props.book.activeUser ? 'btn btn__selected' : 'btn'"
           @click="voteForBook"
+          data-testid="textBtn"
         >
           {{ textBtn }}
           <v-icon
