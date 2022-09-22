@@ -44,6 +44,18 @@ describe("Testing UI: BookList", () => {
     },
   ];
 
+  it("It should render properly the total number of books in the list", () => {
+    const wrapper = mount(BookList, {
+      props: {
+        books: books,
+        isCarousel: true,
+      },
+    });
+    const bookList = wrapper.findAll('[data-testid="bookCard"]');
+
+    expect(bookList.length).toBe(3);
+  });
+
   it("It should render properly the book list when is a carousel", () => {
     const wrapper = mount(BookList, {
       props: {

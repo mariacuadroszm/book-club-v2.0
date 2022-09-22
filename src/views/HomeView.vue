@@ -9,7 +9,7 @@ const booksStore = useBooksStore();
 <template>
   <div class="p-4">
     <header class="mb-4">
-      <MainHeader></MainHeader>
+      <MainHeader :display-back-btn="false"></MainHeader>
     </header>
 
     <main>

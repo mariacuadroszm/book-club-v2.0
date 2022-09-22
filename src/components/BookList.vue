@@ -25,6 +25,7 @@ const props = defineProps({
         v-for="book in props.books"
         :key="book.id"
         :book="book"
+        data-testid="bookCard"
       ></BookCard>
     </div>
     <div class="mt-4">
