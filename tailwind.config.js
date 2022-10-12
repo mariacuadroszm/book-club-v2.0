@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
@@ -8,8 +10,8 @@ module.exports = {
       primary: "#6049B9",
       secondary: "#EB405F",
       tertiary: "#C0B9B0",
-      white: "#FFFFFF",
-      black: "#000000",
+      white: colors.white,
+      black: colors.black,
     },
     fontFamily: {
       space: ["Space Grotesk", "sans-serif"],
